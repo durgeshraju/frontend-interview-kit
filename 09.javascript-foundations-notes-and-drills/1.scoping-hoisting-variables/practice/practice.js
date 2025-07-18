@@ -21,3 +21,24 @@ testScope();
 * testScope() is in global scope ✅
 * Execution happens in function scope, not global, once the function is called
  */
+
+// Question #2
+
+var a = 1;
+function scopeTest() {
+  console.log(a);
+  var a = 2;
+}
+scopeTest();
+
+/**
+ * Behind the scenes:
+    var a;           // hoisted (undefined)
+    console.log(a);  // undefined
+    a = 2;
+
+    a) var a = 1 in global scope is ignored inside the function because of shadowing.
+    b) var a = 2 creates a new local a, which is hoisted.
+    c) console.log(a) runs before assignment, so it prints undefined.    
+    *
+ */
